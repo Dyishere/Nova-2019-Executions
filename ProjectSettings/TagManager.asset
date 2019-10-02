@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - projectile
+  - FxTemporaire
+  - FX
+  - World
+  - Target
+  - Boss
   layers:
   - Default
   - TransparentFX
