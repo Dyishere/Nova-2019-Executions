@@ -2462,7 +2462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &280273714
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3313,6 +3313,37 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4562077314036519032, guid: de59adbb9966bf543a3c15266999e682, type: 3}
+--- !u!114 &361347043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361347041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8338c1031fe637c4f9968a39c177332d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayShowTime: 5
+--- !u!114 &361347044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361347041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dae1c239724db74d8a033d060e28784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curType: 1
+  maxHealth: 0
+  firstPeriodHealth: 0
+  secondPeriodHealth: 0
+  curHealth: 0
+  curState: 0
 --- !u!1 &361393716
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,7 +3944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &449492077
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6749,7 +6780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &722424080
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8422,12 +8453,12 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 198228151580939694, guid: 561abac2220442c4da20719a0d81371f,
+    - target: {fileID: 198420552104652666, guid: 561abac2220442c4da20719a0d81371f,
         type: 3}
       propertyPath: randomSeed
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198420552104652666, guid: 561abac2220442c4da20719a0d81371f,
+    - target: {fileID: 198228151580939694, guid: 561abac2220442c4da20719a0d81371f,
         type: 3}
       propertyPath: randomSeed
       value: 0
@@ -12085,8 +12116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TestText: {fileID: 1834917668}
-  Boss: {fileID: 0}
-  Monster: {fileID: 0}
+  Boss: {fileID: 361347041}
+  Monster: {fileID: 2111678274}
 --- !u!1001 &1281363705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22438,6 +22469,10 @@ PrefabInstance:
     - target: {fileID: 100010, guid: bb0cc525c9fb191479f09219e0daa648, type: 3}
       propertyPath: m_Name
       value: SpaceShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: bb0cc525c9fb191479f09219e0daa648, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: bb0cc525c9fb191479f09219e0daa648, type: 3}
       propertyPath: m_LocalPosition.x

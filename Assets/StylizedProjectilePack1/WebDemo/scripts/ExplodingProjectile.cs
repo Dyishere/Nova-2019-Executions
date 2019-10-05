@@ -5,8 +5,8 @@ using System.Collections;
 // Feel free to use any code and picking on it, I cannot guaratnee it will fit into your project
 public class ExplodingProjectile : MonoBehaviour
 {
-    [Header("子弹伤害")]
-    public int bulletDamage;
+    [Header("子弹伤害")]// !!!
+    public int bulletDamage = 20;
 
 
     public GameObject impactPrefab;
@@ -52,9 +52,10 @@ public class ExplodingProjectile : MonoBehaviour
                  Explode();
              }*/
         timer += Time.deltaTime;
-        if (timer >= explosionTimer && explodeOnTimer == true)
+        if (timer >= explosionTimer)
         {
-            Explode();
+            Instantiate(impactPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
+            Destroy(gameObject);
         }
 
     }
@@ -107,7 +108,7 @@ public class ExplodingProjectile : MonoBehaviour
             }
 
             Instantiate(impactPrefab, pos, rot);
-            if (!explodeOnTimer && Missile == false)
+            if (Missile == false)
             {
                 Destroy(gameObject);
             }
