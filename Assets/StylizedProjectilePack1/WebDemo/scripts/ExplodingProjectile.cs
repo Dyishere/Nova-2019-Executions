@@ -6,7 +6,7 @@ using System.Collections;
 public class ExplodingProjectile : MonoBehaviour
 {
     public int bulletDamage = 20;
-    private bool activeDamage;
+    private bool activeDamage=true;
 
     public GameObject impactPrefab;
     public GameObject explosionPrefab;
@@ -92,7 +92,7 @@ public class ExplodingProjectile : MonoBehaviour
             transform.position = hit.point;
             Quaternion rot = Quaternion.FromToRotation(Vector3.forward, hit.normal);
             Vector3 pos = hit.point;
-
+            
             if (activeDamage)
             {
                 switch (hit.collider.gameObject.tag)
