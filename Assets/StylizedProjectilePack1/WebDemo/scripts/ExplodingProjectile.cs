@@ -5,9 +5,8 @@ using System.Collections;
 // Feel free to use any code and picking on it, I cannot guaratnee it will fit into your project
 public class ExplodingProjectile : MonoBehaviour
 {
-    [Header("子弹伤害")]// !!!
     public int bulletDamage = 20;
-
+    private bool activeDamage;
 
     public GameObject impactPrefab;
     public GameObject explosionPrefab;
@@ -94,18 +93,25 @@ public class ExplodingProjectile : MonoBehaviour
             Quaternion rot = Quaternion.FromToRotation(Vector3.forward, hit.normal);
             Vector3 pos = hit.point;
 
-            switch (hit.collider.gameObject.tag)
+            if (activeDamage)
             {
-                case "WeakPoint":
-                    hit.collider.gameObject.GetComponent<WeakPoint>().Damage();
-                    break;
-                case "Boss":
-                    hit.collider.gameObject.GetComponent<DamageSystem>().Damage(bulletDamage);
-                    break;
-                case "Monster":
-                    hit.collider.gameObject.GetComponent<DamageSystem>().Damage(bulletDamage);
-                    break;
+                switch (hit.collider.gameObject.tag)
+                {
+                    case "WeakPoint":
+                        hit.collider.gameObject.GetComponent<WeakPoint>().Damage();
+                        activeDamage = false;
+                        break;
+                    case "Boss":
+                        hit.collider.gameObject.GetComponent<DamageSystem>().Damage(bulletDamage);
+                        activeDamage = false;
+                        break;
+                    case "Monster":
+                        hit.collider.gameObject.GetComponent<DamageSystem>().Damage(bulletDamage);
+                        activeDamage = false;
+                        break;
+                }
             }
+
 
             Instantiate(impactPrefab, pos, rot);
             if (Missile == false)

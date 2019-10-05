@@ -24,7 +24,7 @@ public class PlayerBehaviour : MonoBehaviour
         TestDamageText();
 
         if (Monster.GetComponent<DamageSystem>().GetCurState() == DamageState.DEATH)
-            TestText.text = "小怪死了";
+            Debug.Log("小怪他死了");
         /*
         if (SteamVR_Actions.default_GrabPinch.state == true)
             Shoot();
@@ -51,8 +51,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     private void TestDamageText()
     {
-        TestText.text = name + "血量为" + Boss.GetComponent<DamageSystem>().GetCurHealth() + "，状态为" + Boss.GetComponent<DamageSystem>().GetCurState();
-
+        TestText.text = "Boss血量为" + Boss.GetComponent<DamageSystem>().GetCurHealth() + "，状态为" + Boss.GetComponent<DamageSystem>().GetCurState();
     }
 
 }
