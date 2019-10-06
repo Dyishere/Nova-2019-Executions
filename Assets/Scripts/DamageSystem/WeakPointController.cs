@@ -46,7 +46,7 @@ public class WeakPointController : MonoBehaviour
     private void ShowWeakPoint()
     {
         weakPoint[curWeakPointNum].gameObject.SetActive(false);
-        curWeakPointNum = (int)Random.Range(0, 3);
+        curWeakPointNum = Random.Range(0, 3);
         weakPoint[curWeakPointNum].gameObject.SetActive(true);
     }
 

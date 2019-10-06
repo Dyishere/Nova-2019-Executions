@@ -12,6 +12,7 @@ public class DamageSystem : MonoBehaviour
     [SerializeField] private int secondPeriodHealth;         //二阶段血量分界线
     [SerializeField] private int curHealth;                  //当前血量
     [SerializeField] private DamageState curState;           //当前血量状态
+    public bool isProtect;
 
     // Start is called before the first frame update
     void Start()
@@ -49,9 +50,8 @@ public class DamageSystem : MonoBehaviour
     /// <param name="num">大于零的int类型</param>
     public void Damage(int num)
     {
-        if (num < 0)
-        {
-            Debug.Log("造成伤害的输入不合法");
+        if (num < 0 || curState == DamageState.PROTECT)
+        { 
             return;
         }
         curHealth -= num;
@@ -69,6 +69,14 @@ public class DamageSystem : MonoBehaviour
             return;
         }
         curHealth += num;
+    }
+
+    /// <summary>
+    /// 使该系统处于保护状态，不受伤害。
+    /// </summary>
+    public void Protect()
+    {
+        isProtect = !isProtect;
     }
 
     /// <summary>
@@ -105,22 +113,29 @@ public class DamageSystem : MonoBehaviour
     /// </summary>
     private void CheckHealth()
     {
+
+        if (isProtect)
+        {
+            curState = DamageState.PROTECT;
+            return;
+        }
         if (curHealth <= 0)
         {
+            curHealth = 0;
             curState = DamageState.DEATH;
             return;
         }
-        else if (curHealth < secondPeriodHealth)
+        else if (curHealth <= secondPeriodHealth)
         {
             curState = DamageState.THIRDPERIOD;
             return;
         }
-        else if (curHealth < firstPeriodHealth)
+        else if (curHealth <= firstPeriodHealth)
         {
             curState = DamageState.SECONDPERIOD;
             return;
         }
-        else if (curHealth < maxHealth)
+        else if (curHealth <= maxHealth)
         {
             curState = DamageState.FIRSTPERIOD;
             return;
@@ -133,5 +148,5 @@ public enum DamageSystemType
 }
 public enum DamageState
 {
-    DEATH, FIRSTPERIOD, SECONDPERIOD, THIRDPERIOD,
+    DEATH, FIRSTPERIOD, SECONDPERIOD, THIRDPERIOD, PROTECT,
 }

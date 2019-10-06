@@ -53,5 +53,4 @@ public class PlayerBehaviour : MonoBehaviour
     {
         TestText.text = "Boss血量为" + Boss.GetComponent<DamageSystem>().GetCurHealth() + "，状态为" + Boss.GetComponent<DamageSystem>().GetCurState();
     }
-
 }

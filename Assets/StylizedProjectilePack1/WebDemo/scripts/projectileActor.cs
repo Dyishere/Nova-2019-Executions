@@ -5,6 +5,7 @@ using Valve.VR;
 using Valve.VR.InteractionSystem;
 
 public class projectileActor : MonoBehaviour {
+    private bool shootingSpeedUpSwitch;         //用于接收是否提速的信息。
 
     public Transform spawnLocator; 
     public Transform spawnLocatorMuzzleFlare;
@@ -67,7 +68,9 @@ public class projectileActor : MonoBehaviour {
         {
             projectileSimFire = 5;
         }
-        
+        shootingSpeedUpSwitch = false;
+
+
     }
 	
 	// Update is called once per frame
@@ -93,6 +96,8 @@ public class projectileActor : MonoBehaviour {
         {
             firing = true;
             Fire();
+            if (shootingSpeedUpSwitch)
+                Fire();
         }
         if (SteamVR_Actions.default_GrabPinch.stateUp == true)
         {
@@ -114,6 +119,11 @@ public class projectileActor : MonoBehaviour {
             firingTimer += Time.deltaTime;
         }
 	}
+
+    public void ShootingSpeedUp()
+    {
+        shootingSpeedUpSwitch = !shootingSpeedUpSwitch;
+    }
 
     public void Switch(int value)
     {
