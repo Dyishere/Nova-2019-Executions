@@ -33,6 +33,7 @@ public class ShootingSpeedUp : MonoBehaviour
     {
         if (!isActive)
         {
+
             return;
         }
         else

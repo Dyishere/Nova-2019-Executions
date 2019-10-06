@@ -5,7 +5,7 @@ using Valve.VR;
 using Valve.VR.InteractionSystem;
 
 public class projectileActor : MonoBehaviour {
-    private bool shootingSpeedUpSwitch;         //用于接收是否提速的信息。
+    public bool shootingSpeedUpSwitch;         //用于接收是否提速的信息。
 
     public Transform spawnLocator; 
     public Transform spawnLocatorMuzzleFlare;

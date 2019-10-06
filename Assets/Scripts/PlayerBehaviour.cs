@@ -12,6 +12,7 @@ public class PlayerBehaviour : MonoBehaviour
     int shootnum = 0;
     public GameObject Boss;
     public GameObject Monster;
+    public GameObject gun;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TestDamageText();
+        TestSpeedUP();
 
         if (Monster.GetComponent<DamageSystem>().GetCurState() == DamageState.DEATH)
             Debug.Log("小怪他死了");
@@ -52,5 +53,9 @@ public class PlayerBehaviour : MonoBehaviour
     private void TestDamageText()
     {
         TestText.text = "Boss血量为" + Boss.GetComponent<DamageSystem>().GetCurHealth() + "，状态为" + Boss.GetComponent<DamageSystem>().GetCurState();
+    }
+    private void TestSpeedUP()
+    {
+        TestText.text = "当前射击模式为提速状态：" + gun.GetComponent<projectileActor>().shootingSpeedUpSwitch;
     }
 }
