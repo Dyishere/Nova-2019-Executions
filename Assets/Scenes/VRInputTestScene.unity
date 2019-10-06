@@ -14001,7 +14001,7 @@ MonoBehaviour:
   TestText: {fileID: 1834917668}
   Boss: {fileID: 361347041}
   Monster: {fileID: 2111678274}
-  gun: {fileID: 0}
+  gun: {fileID: 1139926696}
 --- !u!1001 &1281363705
 PrefabInstance:
   m_ObjectHideFlags: 0
