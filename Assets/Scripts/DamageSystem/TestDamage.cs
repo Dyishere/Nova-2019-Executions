@@ -18,9 +18,9 @@ public class TestDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SteamVR_Actions.buggy_Brake.stateDown == true)
+        if (SteamVR_Actions.default_Menu.stateDown == true)
         {
-            test.text = "buggy_Brake";
+            test.text = "default_Menu";
         }
         if (SteamVR_Actions.buggy_Reset.stateDown == true)
         {
