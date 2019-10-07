@@ -5,7 +5,8 @@ using Valve.VR;
 using Valve.VR.InteractionSystem;
 
 public class projectileActor : MonoBehaviour {
-    public bool shootingSpeedUpSwitch;         //用于接收是否提速的信息。
+    private bool shootingSpeedUpSwitch;     // 用于接收是否提速的信息。
+    private float temperature;              // 温度系统
 
     public Transform spawnLocator; 
     public Transform spawnLocatorMuzzleFlare;
@@ -145,6 +146,13 @@ public class projectileActor : MonoBehaviour {
 
     public void Fire()
     {
+        if (temperature > 100f)
+        {
+            Debug.Log("枪支过热");
+            return;            
+        }
+
+        temperature += 0.5f;
         //if(CameraShake)
         //{
         //    CameraShakeCaller.ShakeCamera();

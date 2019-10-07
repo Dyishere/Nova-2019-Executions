@@ -29,6 +29,11 @@ public class AreaDamage : MonoBehaviour
         { 
             return;
         }
+        else if (GetComponentInParent<DamageSystem>().GetCurState() == DamageState.DEATH)
+        {
+            Debug.Log("该塔已损坏，无法发动技能");
+            return;
+        }
         else
         {
             gameObject.SetActive(true);
