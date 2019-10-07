@@ -56,6 +56,6 @@ public class PlayerBehaviour : MonoBehaviour
     }
     private void TestSpeedUP()
     {
-        TestText.text = "当前射击模式为提速状态：" + gun.GetComponent<projectileActor>().shootingSpeedUpSwitch;
+        // TestText.text = "当前射击模式为提速状态：" + gun.GetComponent<projectileActor>().shootingSpeedUpSwitch;
     }
 }
