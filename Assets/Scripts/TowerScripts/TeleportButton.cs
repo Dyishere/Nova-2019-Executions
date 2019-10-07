@@ -19,7 +19,6 @@ public class TeleportButton : MonoBehaviour
     private void Start()
     {
         hoverButton.onButtonDown.AddListener(OnButtonDown);
-        
     }
 
     private void OnButtonDown(Hand hand)
@@ -29,6 +28,11 @@ public class TeleportButton : MonoBehaviour
 
     public void TeleportToNextPlatform()
     {
+        if (teleportPos.GetComponentInParent<DamageSystem>().GetCurState() == DamageState.DEATH)
+        {
+            Debug.Log("该塔已损坏，无法传送");
+            return;
+        }
         Vector3 pos = teleportPos.position;
         player.transform.position = pos;
     }
