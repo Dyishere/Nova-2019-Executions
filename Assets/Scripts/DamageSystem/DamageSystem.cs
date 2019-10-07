@@ -23,7 +23,10 @@ public class DamageSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckHealth();
+        if (Pause.GetInstance().GetState() == false)
+        {
+            CheckHealth();
+        }
     }
 
     /// <summary>

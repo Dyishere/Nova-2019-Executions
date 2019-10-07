@@ -13,18 +13,22 @@ public class TestDamage : MonoBehaviour
     void Start()
     {
         m_damageSystem = GetComponent<DamageSystem>();
+       test = GameObject.Find("Text2").GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (SteamVR_Actions.default_Menu.stateDown == true)
+        if (Pause.GetInstance().GetState() == false)
         {
-            test.text = "default_Menu";
-        }
-        if (SteamVR_Actions.buggy_Reset.stateDown == true)
-        {
-            test.text = "p_buggy_Reset";
+            if (SteamVR_Actions.default_Menu.stateDown == true)
+            {
+                test.text = "default_Menu";
+            }
+            if (SteamVR_Actions.buggy_Reset.stateDown == true)
+            {
+                test.text = "p_buggy_Reset";
+            }
         }
 
     }

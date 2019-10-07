@@ -51,43 +51,44 @@ public class EnemyMove : MonoBehaviour
         //moveT(new Vector3(0f,0f,0f));//停止不动
 
         //六身位移动流
-       
-        if (Time.time > nextMove && status == 0)//若移动间隔满足且当前不处于移动中则进行新一轮的移动
+        if (Pause.GetInstance().GetState() == false)
         {
-            directionRange = getRangeMoveVector3();
-            while (!leagalMove(directionRange))
+            if (Time.time > nextMove && status == 0)//若移动间隔满足且当前不处于移动中则进行新一轮的移动
             {
                 directionRange = getRangeMoveVector3();
+                while (!leagalMove(directionRange))
+                {
+                    directionRange = getRangeMoveVector3();
+                }
+                status = 1;//进入移动
+                nextMove = Time.time + moveRate;
             }
-            status = 1;//进入移动
-            nextMove = Time.time + moveRate;
-        }
 
-        if (status == 1)//移动中
-        {
-            moveTo(directionRange, speed);
-            transform.LookAt(tower[playerFlag].transform);//移动后重新调整面向
-            if (this.transform.position == directionRange || Time.time > nextMove)
+            if (status == 1)//移动中
             {
-                status = 0;//达到目的后重新回到日常状态
+                moveTo(directionRange, speed);
                 transform.LookAt(tower[playerFlag].transform);//移动后重新调整面向
-                nextMove = Time.time + 8f;//每次移动约3秒,进入移动状态8s后再进行下一次移动
+                if (this.transform.position == directionRange || Time.time > nextMove)
+                {
+                    status = 0;//达到目的后重新回到日常状态
+                    transform.LookAt(tower[playerFlag].transform);//移动后重新调整面向
+                    nextMove = Time.time + 8f;//每次移动约3秒,进入移动状态8s后再进行下一次移动
+                }
             }
+            //Debug.Log(status+":"+directionRange);
+            //面向始终朝向塔 test
+            //transform.LookAt(tower[playerFlag].transform);
+            //transform.LookAt(tower[0].transform);
+
+            //攻击
+            //if (Time.time > nextFire && status == 0 && distance < attackDistance)
+            if (Time.time > nextFire && (status == 0 || status == 1))//当处于正常允许射击状态，并且在射击频率之外，以及距离小于一定值，才可以射击
+            {
+                attackByShoot();
+            }
+
+            if (status == 2) exCurry();
         }
-        //Debug.Log(status+":"+directionRange);
-        //面向始终朝向塔 test
-        //transform.LookAt(tower[playerFlag].transform);
-        //transform.LookAt(tower[0].transform);
-
-        //攻击
-        //if (Time.time > nextFire && status == 0 && distance < attackDistance)
-        if (Time.time > nextFire && (status == 0 || status == 1))//当处于正常允许射击状态，并且在射击频率之外，以及距离小于一定值，才可以射击
-        {
-            attackByShoot();
-        }
-
-        if (status == 2) exCurry();
-
     }
 
     void Init()

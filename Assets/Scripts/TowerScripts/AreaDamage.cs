@@ -20,7 +20,10 @@ public class AreaDamage : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Working();
+        if (Pause.GetInstance().GetState() == false)
+        {
+            Working();
+        }
     }
 
     public void BeginAreaDamage()

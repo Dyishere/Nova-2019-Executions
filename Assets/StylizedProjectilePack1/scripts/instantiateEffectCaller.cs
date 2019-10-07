@@ -27,8 +27,11 @@ public class instantiateEffectCaller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Pause.GetInstance().GetState() == false)
+        {
             timer += Time.deltaTime;
             CheckTimer();
+        }
     }
     void CheckTimer()
     {

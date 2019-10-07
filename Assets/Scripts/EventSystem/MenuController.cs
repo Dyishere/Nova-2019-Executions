@@ -14,9 +14,12 @@ public class MenuController : MonoBehaviour
     }
     private void Update()
     {
-        if (SteamVR_Actions.default_Menu.stateDown == true)
+        if (Pause.GetInstance().GetState() == false)
         {
-            PauseGame();
+            if (SteamVR_Actions.default_Menu.stateDown == true)
+            {
+                PauseGame();
+            }
         }
     }
     private void InitBoard()
@@ -28,6 +31,9 @@ public class MenuController : MonoBehaviour
     public void ContiuneGame()
     {
         isShow = !isShow;
+        // Time.timeScale = 1;
+        Pause.GetInstance().ContinueGame();
+        Debug.Log(Pause.GetInstance().GetState());
         board.SetActive(isShow);
     }
     public void QuitGame()
@@ -37,6 +43,9 @@ public class MenuController : MonoBehaviour
     public void PauseGame()
     {
         isShow = !isShow;
+        // Time.timeScale = 0;
+        Pause.GetInstance().StopGame();
+        Debug.Log(Pause.GetInstance().GetState());
         board.SetActive(isShow);
     }
 }

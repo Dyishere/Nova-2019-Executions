@@ -30,23 +30,26 @@ public class EmptyCreate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyRate = (3 + (1 / 8) * time * time);
-        //Debug.Log(enemyRate);
-
-        if (EnemyCurrentNum == 20 || EnemyCurrentNum == 40 || EnemyCurrentNum == 60)
+        if (Pause.GetInstance().GetState() == false)
         {
-            exCurry = 1;//都给我去放大招啊啊啊啊啊
-            exCurryTime = Time.time + 15f;//蓄力射击阶段持续15秒
-        }
+            enemyRate = (3 + (1 / 8) * time * time);
+            //Debug.Log(enemyRate);
 
-        if (Time.time > exCurryTime)
-        {
-            exCurry = 0;
-        }
+            if (EnemyCurrentNum == 20 || EnemyCurrentNum == 40 || EnemyCurrentNum == 60)
+            {
+                exCurry = 1;//都给我去放大招啊啊啊啊啊
+                exCurryTime = Time.time + 15f;//蓄力射击阶段持续15秒
+            }
 
-        if(Time.time > nextEnemy && status == 0 && exCurry != 1)
-        {
-            createEnemy(rangePos(pos));
+            if (Time.time > exCurryTime)
+            {
+                exCurry = 0;
+            }
+
+            if (Time.time > nextEnemy && status == 0 && exCurry != 1)
+            {
+                createEnemy(rangePos(pos));
+            }
         }
     }
 

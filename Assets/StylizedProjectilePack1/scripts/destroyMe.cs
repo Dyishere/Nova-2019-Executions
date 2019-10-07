@@ -15,12 +15,14 @@ public class destroyMe : MonoBehaviour{
 	// Update is called once per frame
 	void Update ()
     {
-        timer += Time.deltaTime;
-
-        if(timer >= deathtimer)
+        if (Pause.GetInstance().GetState() == false)
         {
-            Destroy(gameObject);
+            timer += Time.deltaTime;
+
+            if (timer >= deathtimer)
+            {
+                Destroy(gameObject);
+            }
         }
-	
 	}
 }

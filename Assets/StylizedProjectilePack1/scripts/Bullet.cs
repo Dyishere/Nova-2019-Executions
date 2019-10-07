@@ -19,8 +19,11 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.Normalize(Vector3.forward) * bulletSpeed * Time.deltaTime);
-        //Debug.Log(bulletSpeed);
+        if (Pause.GetInstance().GetState() == false)
+        {
+            transform.Translate(Vector3.Normalize(Vector3.forward) * bulletSpeed * Time.deltaTime);
+            //Debug.Log(bulletSpeed);
+        }
     }
 
     void OnCollisionEnter(Collision other)

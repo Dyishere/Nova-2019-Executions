@@ -22,10 +22,13 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TestSpeedUP();
+        if (Pause.GetInstance().GetState() == false)
+        {
+            TestSpeedUP();
 
-        if (Monster.GetComponent<DamageSystem>().GetCurState() == DamageState.DEATH)
-            Debug.Log("小怪他死了");
+            if (Monster.GetComponent<DamageSystem>().GetCurState() == DamageState.DEATH)
+                Debug.Log("小怪他死了");
+        }
         /*
         if (SteamVR_Actions.default_GrabPinch.state == true)
             Shoot();

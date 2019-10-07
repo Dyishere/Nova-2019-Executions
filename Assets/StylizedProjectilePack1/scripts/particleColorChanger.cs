@@ -20,17 +20,20 @@ public class particleColorChanger : MonoBehaviour {
 
     void Update()
      {
-        if (applyChanges || Keep_applyChanges)
+        if (Pause.GetInstance().GetState() == false)
         {
-            for (int i = 0; i < colorChangeList.Length; i++)
+            if (applyChanges || Keep_applyChanges)
             {
-                for (int a = 0; a < colorChangeList[i].colored_ParticleSystem.Length; a++)
+                for (int i = 0; i < colorChangeList.Length; i++)
                 {
-                    var col = colorChangeList[i].colored_ParticleSystem[a].colorOverLifetime;
-                    col.color = colorChangeList[i].Gradient_custom;
+                    for (int a = 0; a < colorChangeList[i].colored_ParticleSystem.Length; a++)
+                    {
+                        var col = colorChangeList[i].colored_ParticleSystem[a].colorOverLifetime;
+                        col.color = colorChangeList[i].Gradient_custom;
+                    }
                 }
+                applyChanges = false;
             }
-            applyChanges = false;
         }
     }
   
