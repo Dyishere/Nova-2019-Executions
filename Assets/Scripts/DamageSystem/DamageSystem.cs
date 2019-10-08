@@ -7,10 +7,10 @@ public class DamageSystem : MonoBehaviour
     public DamageSystemType curType;
 
     [Header("具体属性设定（若curType为NONE时可自定义）")]
-    [SerializeField] private int maxHealth;                  //血量上限
-    [SerializeField] private int firstPeriodHealth;          //一阶段血量分界线
-    [SerializeField] private int secondPeriodHealth;         //二阶段血量分界线
-    [SerializeField] private int curHealth;                  //当前血量
+    [SerializeField] private float maxHealth;                  //血量上限
+    [SerializeField] private float firstPeriodHealth;          //一阶段血量分界线
+    [SerializeField] private float secondPeriodHealth;         //二阶段血量分界线
+    [SerializeField] private float curHealth;                  //当前血量
     [SerializeField] private DamageState curState;           //当前血量状态
     public bool isProtect;
 
@@ -33,7 +33,7 @@ public class DamageSystem : MonoBehaviour
     /// 返回该系统的实际血量。
     /// </summary>
     /// <returns>血量的int类型</returns>
-    public int GetCurHealth()
+    public float GetCurHealth()
     {
         return curHealth;
     }
@@ -51,7 +51,7 @@ public class DamageSystem : MonoBehaviour
     /// 造成该系统的伤害。
     /// </summary>
     /// <param name="num">大于零的int类型</param>
-    public void Damage(int num)
+    public void Damage(float num)
     {
         if (num < 0 || curState == DamageState.PROTECT)
         { 

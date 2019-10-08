@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour
 
         if (other.gameObject.tag == "Tower")
         {
-            //调用tower扣血函数
+            other.GetComponent<DamageSystem>().Damage(damageNum);
         }
         //生成爆炸特效
         Destroy(this.gameObject);
