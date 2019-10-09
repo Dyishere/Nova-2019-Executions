@@ -53,7 +53,8 @@ public class EnemyMove : MonoBehaviour
         //六身位移动流
         if (Pause.GetInstance().GetState() == false)
         {
-            if(Time.time > nextMove && status == 0)
+            MonsterDeath();
+            if (Time.time > nextMove && status == 0)
             {
                 directionRange = -directionRange;
                 status = 1;
@@ -100,7 +101,7 @@ public class EnemyMove : MonoBehaviour
 
     void Init()
     {
-        enemy = this.gameObject;
+        enemy = gameObject;
         tower = GameObject.FindGameObjectsWithTag("Tower");
         playerFlag = 0;
         status = 0;//默认为'normal'状态
@@ -192,5 +193,11 @@ public class EnemyMove : MonoBehaviour
     {
         return true;
     }
-
+    private void MonsterDeath()
+    {
+        if (GetComponent<DamageSystem>().GetCurState() == DamageState.DEATH)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

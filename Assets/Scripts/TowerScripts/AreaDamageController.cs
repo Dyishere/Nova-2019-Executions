@@ -6,14 +6,13 @@ public class AreaDamageController : MonoBehaviour
 {
     public int preCDTime;
     public float movingSpeed;
-    public GameObject board;
     private GameObject Effection;
     private GameObject endPos;
     private Vector3 startPos;
     private int CDTime;
     private bool isActive;
     private bool isCD;
-
+    private bool isPause;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +26,19 @@ public class AreaDamageController : MonoBehaviour
         {
             Working();
         }
+        isPause = Pause.GetInstance().GetState();
     }
-
+    public float GetCurValue(string title)
+    {
+        switch (title)
+        {
+            case "preCDTime":
+                return preCDTime;
+            case "CDTime":
+                return CDTime;
+        }
+        return 233;//debug
+    }
     public void BeginAreaDamage()
     {
         if (isActive || isCD)
@@ -76,11 +86,15 @@ public class AreaDamageController : MonoBehaviour
 
     IEnumerator CDCountDown()
     {
+        CDTime = preCDTime;
         isCD = true;
-        while (CDTime <= preCDTime)
+        while (CDTime > 0)
         {
-            CDTime++;
-            board.GetComponent<BoardController>().CheckTime(BoardType.areaDamegeCDType, preCDTime, CDTime);
+            CDTime--;
+            if (isPause)
+            {
+                yield return !isPause;
+            }
             yield return new WaitForSeconds(1);
         }
         isCD = false;

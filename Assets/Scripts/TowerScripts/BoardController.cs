@@ -11,6 +11,11 @@ public class BoardController : MonoBehaviour
     private Text areaDamageCDText;
     private Text speedUpCDText;
     private Text speedUpEffectText;
+    private Text healthText;
+    private GameObject areaDamageTarget;
+    private GameObject protectionFieldTarget;
+    private GameObject healthTarget;
+    private GameObject speedUpTarget;
 
     // Start is called before the first frame update
     private void Start()
@@ -19,27 +24,22 @@ public class BoardController : MonoBehaviour
     }
     private void Update()
     {
-    }
-    public void CheckTime(BoardType curBoard, int preTime,int curTime)
-    {
-
-        switch (curBoard)
+        if (Pause.GetInstance().GetState() == false)
         {
-            case BoardType.protectFieldCDType:
-                protectFieldCDText.text = "充能所需时间：" + (preTime - curTime + 1) + "秒" ;
-                break;
-            case BoardType.protectFieldEffectType:
-                protectFieldEffectText.text = "剩余效果时间：" + (preTime - curTime + 1) + "秒";
-                break;
-            case BoardType.areaDamegeCDType:
-                areaDamageCDText.text = "充能所需时间：" + (preTime - curTime + 1) + "秒";
-                break;
-            case BoardType.speedUpCDType:
-                speedUpCDText.text = "充能所需时间：" + (preTime - curTime + 1) + "秒";
-                break;
-            case BoardType.speedUpEffectType:
-                speedUpEffectText.text = "剩余效果时间：" + (preTime - curTime + 1) + "秒";
-                break;
+            CheckValue();
+        }
+
+    }
+    public void CheckValue()
+    {
+        protectFieldCDText.text = "充能所需时间：" + (protectionFieldTarget.GetComponent<ProtectionField>().GetCurValue("CDTime")) + "秒" ;
+        protectFieldEffectText.text = "剩余效果时间：" + (protectionFieldTarget.GetComponent<ProtectionField>().GetCurValue("EffectiveTime")) + "秒";
+        areaDamageCDText.text = "充能所需时间：" + (areaDamageTarget.GetComponent<AreaDamageController>().GetCurValue("CDTime")) + "秒";
+        healthText.text = "当前剩余血量：" + healthTarget.GetComponent<DamageSystem>().GetCurHealth();
+        if (curTower == "c")
+        {
+            speedUpCDText.text = "充能所需时间：" + (speedUpTarget.GetComponent<ShootingSpeedUp>().GetCurValue("CDTime")) + "秒";
+            speedUpEffectText.text = "剩余效果时间：" + (speedUpTarget.GetComponent<ShootingSpeedUp>().GetCurValue("EffectiveTime")) + "秒";
         }
     }
     private void InitTowerBoard()
@@ -47,14 +47,19 @@ public class BoardController : MonoBehaviour
         if (curTower == "c")
         {
             speedUpEffectText = GameObject.Find("c/Board/BoardCanvas/SpeedUpBoard/Effect").gameObject.GetComponent<Text>();
-            speedUpCDText = GameObject.Find("c/Board/BoardCanvas/SpeedUpBoard/CD").gameObject.GetComponent<Text>(); 
+            speedUpCDText = GameObject.Find("c/Board/BoardCanvas/SpeedUpBoard/CD").gameObject.GetComponent<Text>();
+            speedUpTarget = GameObject.Find("platform/" + curTower + "/SpeedUpButton/SpeedUpPoint");
         }
         protectFieldEffectText = GameObject.Find(curTower + "/Board/BoardCanvas/ProtectionFieldBoard/Effect").gameObject.GetComponent<Text>();
         protectFieldCDText = GameObject.Find(curTower + "/Board/BoardCanvas/ProtectionFieldBoard/CD").gameObject.GetComponent<Text>();
         areaDamageCDText = GameObject.Find(curTower + "/Board/BoardCanvas/AreaDamageBoard/CD").gameObject.GetComponent<Text>();
+        healthText = GameObject.Find(curTower + "/Board/BoardCanvas/HealthBoard/Health").gameObject.GetComponent<Text>();
+        areaDamageTarget = GameObject.Find("platform/" + curTower + "/AreaDamageButton/AreaDamagePoint");
+        protectionFieldTarget = GameObject.Find("platform/" + curTower + "/ProtectionFieldButton/ProtectionFieldPoint");
+        healthTarget = GameObject.Find("platform/" + curTower);
     }
 }
 public enum BoardType
 {
-    protectFieldCDType, protectFieldEffectType, areaDamegeCDType, speedUpEffectType, speedUpCDType,
+    protectFieldCDType, protectFieldEffectType, areaDamegeCDType, speedUpEffectType, speedUpCDType, healthType,
 }

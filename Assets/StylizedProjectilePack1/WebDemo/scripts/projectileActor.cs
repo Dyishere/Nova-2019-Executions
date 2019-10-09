@@ -9,7 +9,7 @@ public class projectileActor : MonoBehaviour {
     private bool shootingSpeedUpSwitch;     // 用于接收是否提速的信息。
     public  float temperature;             // 温度系统
     public float curTime;                  // 用于计时
-
+    private bool isColdDown;
     public Transform spawnLocator; 
     public Transform spawnLocatorMuzzleFlare;
     public Transform shellLocator;
@@ -163,10 +163,16 @@ public class projectileActor : MonoBehaviour {
 
     public void Fire()
     {
-        if (temperature > 100f)
+        if (temperature > 100f && !isColdDown)
         {
+            StartCoroutine(ShootingColdDown());
             Debug.Log("枪支过热");
-            return;            
+            return;
+        }
+        if (isColdDown)
+        {
+            Debug.Log("冷却中");
+            return;
         }
         curTime = 0;
 
@@ -213,7 +219,12 @@ public class projectileActor : MonoBehaviour {
             Major_RandomizeRotation();
         }
     }
-
+    IEnumerator ShootingColdDown()
+    {
+        isColdDown = true;
+        yield return new WaitForSeconds(5);
+        isColdDown = false;
+    }
 
     void RandomizeRotation()
     {

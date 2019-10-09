@@ -34,6 +34,7 @@ public class WeakPointController : MonoBehaviour
             curWeakPointNum++;
         }
         curWeakPointNum = 0;
+        weakPoint[curWeakPointNum].gameObject.SetActive(true);
         isWorking = true;
         StartCoroutine(WeakPointCycle());
     }
@@ -44,7 +45,7 @@ public class WeakPointController : MonoBehaviour
         StartCoroutine(WeakPointCycle());
     }
 
-    IEnumerator WeakPointCycle()
+    private IEnumerator WeakPointCycle()
     {
         while (m_DamageSystem.GetCurState() != DamageState.DEATH)
         {

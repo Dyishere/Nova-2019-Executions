@@ -5,19 +5,37 @@ using UnityEngine;
 public class ShootingSpeedUp : MonoBehaviour
 {
     public int preCDTime;
-    public float EffectiveTime;
-    public GameObject board;
+    public int preEffectiveTime;
     public GameObject gun;
     private int CDTime;
+    private int EffectiveTime;
     private bool isActive;
     private bool isCD;
-
+    private bool isPause;
     // Start is called before the first frame update
     void Start()
     {
         InitProtectionField();
     }
-
+    private void Update()
+    {
+        isPause = Pause.GetInstance().GetState(); 
+    }
+    public float GetCurValue(string title)
+    {
+        switch (title)
+        {
+            case "preCDTime":
+                return preCDTime;
+            case "CDTime":
+                return CDTime;
+            case "preEffectiveTime":
+                return preEffectiveTime;
+            case "EffectiveTime":
+                return EffectiveTime;
+        }
+        return 233;//debug
+    }
     public void BeginProtectionField()
     {
         if (isActive || isCD)
@@ -53,25 +71,34 @@ public class ShootingSpeedUp : MonoBehaviour
     {
         isCD = false;
         isActive = false;
+        EffectiveTime = preEffectiveTime;
     }
     IEnumerator CDCountDown()
     {
+        CDTime = preCDTime;
         isCD = true;
-        while (CDTime <= preCDTime)
+        while (CDTime > 0)
         {
-            CDTime++;
-            board.GetComponent<BoardController>().CheckTime(BoardType.speedUpCDType, preCDTime, CDTime);
+            CDTime--;
+            if (isPause)
+            {
+                yield return !isPause;
+            }
             yield return new WaitForSeconds(1);
         }
+        EffectiveTime = preEffectiveTime;
         isCD = false;
     }
     IEnumerator EffectiveTimeCountDown()
     {
         gun.GetComponent<projectileActor>().ShootingSpeedUp();
-        while (CDTime <= preCDTime)
+        while (EffectiveTime > 0)
         {
-            CDTime++;
-            board.GetComponent<BoardController>().CheckTime(BoardType.speedUpEffectType, preCDTime, CDTime);
+            EffectiveTime--;
+            if (isPause)
+            {
+                yield return !isPause;
+            }
             yield return new WaitForSeconds(1);
         }
         gun.GetComponent<projectileActor>().ShootingSpeedUp();

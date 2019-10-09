@@ -6,19 +6,37 @@ public class ProtectionField : MonoBehaviour
 { 
     public int preCDTime;
     public int preEffectiveTime;
-    public GameObject board;
     private int CDTime;
     private int EffectiveTime;
     private GameObject effection;
     private bool isActive;
     private bool isCD;
-
+    private bool isPause;
     // Start is called before the first frame update
     void Start()
     {
         InitProtectionField();
     }
+    private void Update()
+    {
+        isPause = Pause.GetInstance().GetState();
+    }
 
+    public float GetCurValue(string title)
+    {
+        switch (title)
+        {
+            case "preCDTime":
+                return preCDTime;
+            case "CDTime":
+                return CDTime;
+            case "preEffectiveTime":
+                return preEffectiveTime;
+            case "EffectiveTime":
+                return EffectiveTime;
+        }
+        return 233;//debug
+    }
     public void BeginProtectionField()
     {
         if (isActive || isCD)
@@ -55,32 +73,39 @@ public class ProtectionField : MonoBehaviour
         isActive = false;
         effection = transform.GetChild(0).gameObject;
         effection.gameObject.SetActive(false);
+        EffectiveTime = preEffectiveTime;
     }
     
     IEnumerator CDCountDown()
     {
+        CDTime = preCDTime;
         isCD = true;
-        while (CDTime <= preCDTime)
+        while (CDTime > 0)
         {
-            CDTime++;
-            board.GetComponent<BoardController>().CheckTime(BoardType.protectFieldCDType, preCDTime, CDTime);
+            CDTime--;
+            if (isPause)
+            {
+                yield return !isPause;
+            }
             yield return new WaitForSeconds(1);
         }
-        CDTime = 0;
-        isCD = false;
+            EffectiveTime = preEffectiveTime;
+            isCD = false;
     }
     IEnumerator EffectiveTimeCountDown()
     {
         transform.GetComponentInParent<DamageSystem>().Protect();
         effection.gameObject.SetActive(true);
-        while (EffectiveTime <= preEffectiveTime)
+        while (EffectiveTime > 0)
         {
-            EffectiveTime++;
-            board.GetComponent<BoardController>().CheckTime(BoardType.protectFieldEffectType, preEffectiveTime, EffectiveTime);
+            EffectiveTime--;
+            if (isPause)
+            {
+                yield return !isPause;
+            }
             yield return new WaitForSeconds(1);
         }
-        EffectiveTime = 0;
-        effection.gameObject.SetActive(false);
-        transform.GetComponentInParent<DamageSystem>().Protect();
+            effection.gameObject.SetActive(false);
+            transform.GetComponentInParent<DamageSystem>().Protect();
     }
 }

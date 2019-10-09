@@ -12,7 +12,7 @@ public class DamageSystem : MonoBehaviour
     [SerializeField] private float secondPeriodHealth;         //二阶段血量分界线
     [SerializeField] private float curHealth;                  //当前血量
     [SerializeField] private DamageState curState;           //当前血量状态
-    public bool isProtect;
+    private bool isProtect;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +53,7 @@ public class DamageSystem : MonoBehaviour
     /// <param name="num">大于零的int类型</param>
     public void Damage(float num)
     {
-        if (num < 0 || curState == DamageState.PROTECT)
+        if (num < 0 || curState == DamageState.PROTECT || curState == DamageState.DEATH)
         { 
             return;
         }
@@ -66,7 +66,7 @@ public class DamageSystem : MonoBehaviour
     /// <param name="num">大于零的int类型</param>
     public void Recover(int num)
     {
-        if (num <= 0)
+        if (num <= 0 || curState == DamageState.DEATH)
         {
             Debug.Log("造成回血的输入不合法");
             return;
