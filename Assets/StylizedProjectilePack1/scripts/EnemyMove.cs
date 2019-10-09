@@ -53,9 +53,16 @@ public class EnemyMove : MonoBehaviour
         //六身位移动流
         if (Pause.GetInstance().GetState() == false)
         {
+            if(Time.time > nextMove && status == 0)
+            {
+                directionRange = -directionRange;
+                status = 1;
+                nextMove = Time.time + moveRate;
+            }
+            /*
             if (Time.time > nextMove && status == 0)//若移动间隔满足且当前不处于移动中则进行新一轮的移动
             {
-                directionRange = getRangeMoveVector3();
+                
                 while (!leagalMove(directionRange))
                 {
                     directionRange = getRangeMoveVector3();
@@ -63,7 +70,7 @@ public class EnemyMove : MonoBehaviour
                 status = 1;//进入移动
                 nextMove = Time.time + moveRate;
             }
-
+            */
             if (status == 1)//移动中
             {
                 moveTo(directionRange, speed);
@@ -103,6 +110,7 @@ public class EnemyMove : MonoBehaviour
         nextMove = 0.0f;
         transform.LookAt(tower[playerFlag].transform);//初始朝向面向玩家
         //speed = 2f;
+        directionRange = getRangeMoveVector3();
     }
 
     void moveByRange()

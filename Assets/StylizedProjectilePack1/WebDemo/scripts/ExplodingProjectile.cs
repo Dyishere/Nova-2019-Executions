@@ -50,35 +50,43 @@ public class ExplodingProjectile : MonoBehaviour
              {
                  Explode();
              }*/
-        timer += Time.deltaTime;
-        if (timer >= explosionTimer)
+        if (Pause.GetInstance().GetState() == false)
         {
-            Instantiate(impactPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
-            Destroy(gameObject);
+
+            timer += Time.deltaTime;
+            if (timer >= explosionTimer)
+            {
+                Instantiate(impactPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
+                Destroy(gameObject);
+            }
         }
 
     }
 
     void FixedUpdate()
     {
-        if (Missile)
+        if (Pause.GetInstance().GetState() == false)
         {
-            projectileSpeed += projectileSpeed * projectileSpeedMultiplier;
-            //   transform.position = Vector3.MoveTowards(transform.position, missileTarget.transform.position, 0);
 
-            transform.LookAt(missileTarget);
+            if (Missile)
+            {
+                projectileSpeed += projectileSpeed * projectileSpeedMultiplier;
+                //   transform.position = Vector3.MoveTowards(transform.position, missileTarget.transform.position, 0);
 
-            thisRigidbody.AddForce(transform.forward * projectileSpeed);
+                transform.LookAt(missileTarget);
+
+                thisRigidbody.AddForce(transform.forward * projectileSpeed);
+            }
+
+            if (LookRotation && timer >= 0.05f)
+            {
+                transform.rotation = Quaternion.LookRotation(thisRigidbody.velocity);
+            }
+
+            CheckCollision(previousPosition);
+
+            previousPosition = transform.position;
         }
-
-        if (LookRotation && timer >= 0.05f)
-        {
-            transform.rotation = Quaternion.LookRotation(thisRigidbody.velocity);
-        }
-
-        CheckCollision(previousPosition);
-
-        previousPosition = transform.position;
     }
 
     void CheckCollision(Vector3 prevPos)

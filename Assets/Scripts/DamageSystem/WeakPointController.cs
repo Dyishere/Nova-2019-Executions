@@ -8,6 +8,7 @@ public class WeakPointController : MonoBehaviour
     public float delayShowTime;
     private DamageSystem m_DamageSystem;
     private int curWeakPointNum;
+    private bool isWorking;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,10 @@ public class WeakPointController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Pause.GetInstance().GetState() == false && !isWorking)
+        {
+            StartCycle();
+        }
     }
 
     private void InitWeakPoint()
@@ -30,16 +34,27 @@ public class WeakPointController : MonoBehaviour
             curWeakPointNum++;
         }
         curWeakPointNum = 0;
+        isWorking = true;
+        StartCoroutine(WeakPointCycle());
+    }
+
+    public void StartCycle()
+    {
+        isWorking = true;
         StartCoroutine(WeakPointCycle());
     }
 
     IEnumerator WeakPointCycle()
     {
-
         while (m_DamageSystem.GetCurState() != DamageState.DEATH)
         {
             ShowWeakPoint();
             yield return new WaitForSeconds(delayShowTime);
+            if (Pause.GetInstance().GetState() == true)
+            {
+                isWorking = false;
+                break;
+            }
         }
     }
 

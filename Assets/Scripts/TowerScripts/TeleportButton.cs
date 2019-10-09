@@ -23,6 +23,11 @@ public class TeleportButton : MonoBehaviour
 
     private void OnButtonDown(Hand hand)
     {
+        if (teleportPos.GetComponentInParent<DamageSystem>().GetCurState() == DamageState.DEATH)
+        {
+            Debug.Log("该塔已损坏，无法传送");
+            return;
+        }
         StartCoroutine(DoTeleport());
     }
 
@@ -33,8 +38,7 @@ public class TeleportButton : MonoBehaviour
             Debug.Log("该塔已损坏，无法传送");
             return;
         }
-        Vector3 pos = teleportPos.position;
-        player.transform.position = pos;
+        player.transform.position =  teleportPos.position;
     }
 
     private IEnumerator DoTeleport()

@@ -5,8 +5,10 @@ using Valve.VR;
 using Valve.VR.InteractionSystem;
 
 public class projectileActor : MonoBehaviour {
+    public float perTemperature;            // 每秒无发射的下降速度
     private bool shootingSpeedUpSwitch;     // 用于接收是否提速的信息。
-    private float temperature;              // 温度系统
+    public  float temperature;             // 温度系统
+    public float curTime;                  // 用于计时
 
     public Transform spawnLocator; 
     public Transform spawnLocatorMuzzleFlare;
@@ -71,7 +73,6 @@ public class projectileActor : MonoBehaviour {
         }
         shootingSpeedUpSwitch = false;
 
-
     }
 	
 	// Update is called once per frame
@@ -80,52 +81,68 @@ public class projectileActor : MonoBehaviour {
         //if (Input.GetButtonDown("Fire1"))
         //    Switch(-1);
         //Movement
-        if (Input.GetButton("Horizontal"))
+        if (Pause.GetInstance().GetState() == false)
         {
-            if (Input.GetAxis("Horizontal") < 0)
+            if (Input.GetButton("Horizontal"))
             {
-                gameObject.transform.Rotate(Vector3.up, -25 * Time.deltaTime);
+                if (Input.GetAxis("Horizontal") < 0)
+                {
+                    gameObject.transform.Rotate(Vector3.up, -25 * Time.deltaTime);
+                }
+                else
+                {
+                    gameObject.transform.Rotate(Vector3.up, 25 * Time.deltaTime);
+                }
             }
-            else
+
+            if (SteamVR_Actions.default_GrabPinch.stateDown == true)
             {
-                gameObject.transform.Rotate(Vector3.up, 25 * Time.deltaTime);
+                firing = true;
+                Fire();
+                if (shootingSpeedUpSwitch)
+                    Fire();
             }
-        }
-
-
-	    if(SteamVR_Actions.default_GrabPinch.stateDown == true)
-        {
-            firing = true;
-            Fire();
-            if (shootingSpeedUpSwitch)
-                Fire();
-        }
-        if (SteamVR_Actions.default_GrabPinch.stateUp == true)
-        {
-            firing = false;
-            firingTimer = 0;
-        }
-
-        if (bombList[bombType].rapidFire && firing)
-        {
-            if(firingTimer > bombList[bombType].rapidFireCooldown+rapidFireDelay)
+            if (SteamVR_Actions.default_GrabPinch.stateUp == true)
             {
-                Fire();
+                firing = false;
                 firingTimer = 0;
             }
-        }
+            if (bombList[bombType].rapidFire && firing)
+            {
+                if (firingTimer > bombList[bombType].rapidFireCooldown + rapidFireDelay)
+                {
+                    Fire();
+                    firingTimer = 0;
+                }
+            }
 
-        if(firing)
-        {
-            firingTimer += Time.deltaTime;
+            if (firing)
+            {
+                firingTimer += Time.deltaTime;
+            }
         }
 	}
-
+    private void FixedUpdate()
+    {
+        ColdDown();
+    }
     public void ShootingSpeedUp()
     {
         shootingSpeedUpSwitch = !shootingSpeedUpSwitch;
     }
-
+    private void ColdDown()
+    {
+        if (curTime > 120f)
+        {
+            curTime = 0f;
+            temperature -= perTemperature;
+        }
+        if (temperature < 0)
+        {
+            temperature = 0f;
+        }
+        curTime += 1f;
+    }
     public void Switch(int value)
     {
             bombType += value;
@@ -141,7 +158,7 @@ public class projectileActor : MonoBehaviour {
        // if (UImaster)
        // {
        //     UiText.text = bombList[bombType].name.ToString();
-        //}
+       // }
     }
 
     public void Fire()
@@ -151,6 +168,7 @@ public class projectileActor : MonoBehaviour {
             Debug.Log("枪支过热");
             return;            
         }
+        curTime = 0;
 
         temperature += 0.5f;
         //if(CameraShake)
