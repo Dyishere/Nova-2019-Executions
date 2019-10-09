@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ShootingSpeedUp : MonoBehaviour
 {
-    public float CDTime;
+    public int preCDTime;
     public float EffectiveTime;
+    public GameObject board;
     public GameObject gun;
+    private int CDTime;
     private bool isActive;
     private bool isCD;
 
@@ -31,7 +33,7 @@ public class ShootingSpeedUp : MonoBehaviour
         {
             isActive = true;
             Working();
-            StartCoroutine(CD());
+            StartCoroutine(CDCountDown());
         }
     }
     private void Working()
@@ -44,7 +46,7 @@ public class ShootingSpeedUp : MonoBehaviour
         else
         {
             isActive = false;
-            StartCoroutine(EffectiveTimeCD());
+            StartCoroutine(EffectiveTimeCountDown());
         }
     }
     private void InitProtectionField()
@@ -52,16 +54,26 @@ public class ShootingSpeedUp : MonoBehaviour
         isCD = false;
         isActive = false;
     }
-    IEnumerator CD()
+    IEnumerator CDCountDown()
     {
         isCD = true;
-        yield return new WaitForSeconds(CDTime);
+        while (CDTime <= preCDTime)
+        {
+            CDTime++;
+            board.GetComponent<BoardController>().CheckTime(BoardType.speedUpCDType, preCDTime, CDTime);
+            yield return new WaitForSeconds(1);
+        }
         isCD = false;
     }
-    IEnumerator EffectiveTimeCD()
+    IEnumerator EffectiveTimeCountDown()
     {
         gun.GetComponent<projectileActor>().ShootingSpeedUp();
-        yield return new WaitForSeconds(EffectiveTime);
+        while (CDTime <= preCDTime)
+        {
+            CDTime++;
+            board.GetComponent<BoardController>().CheckTime(BoardType.speedUpEffectType, preCDTime, CDTime);
+            yield return new WaitForSeconds(1);
+        }
         gun.GetComponent<projectileActor>().ShootingSpeedUp();
     }
 }

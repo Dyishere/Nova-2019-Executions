@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class ProtectionField : MonoBehaviour
 { 
-    public float CDTime;
-    public float EffectiveTime;
+    public int preCDTime;
+    public int preEffectiveTime;
+    public GameObject board;
+    private int CDTime;
+    private int EffectiveTime;
     private GameObject effection;
     private bool isActive;
     private bool isCD;
@@ -26,7 +29,7 @@ public class ProtectionField : MonoBehaviour
         {
             isActive = true;
             Working();
-            StartCoroutine(CD());
+            StartCoroutine(CDCountDown());
         }
     }
     private void Working()
@@ -43,7 +46,7 @@ public class ProtectionField : MonoBehaviour
         else
         {
             isActive = false;
-            StartCoroutine(EffectiveTimeCD());
+            StartCoroutine(EffectiveTimeCountDown());
         }
     }
     private void InitProtectionField()
@@ -53,17 +56,30 @@ public class ProtectionField : MonoBehaviour
         effection = transform.GetChild(0).gameObject;
         effection.gameObject.SetActive(false);
     }
-    IEnumerator CD()
+    
+    IEnumerator CDCountDown()
     {
         isCD = true;
-        yield return new WaitForSeconds(CDTime);
+        while (CDTime <= preCDTime)
+        {
+            CDTime++;
+            board.GetComponent<BoardController>().CheckTime(BoardType.protectFieldCDType, preCDTime, CDTime);
+            yield return new WaitForSeconds(1);
+        }
+        CDTime = 0;
         isCD = false;
     }
-    IEnumerator EffectiveTimeCD()
+    IEnumerator EffectiveTimeCountDown()
     {
         transform.GetComponentInParent<DamageSystem>().Protect();
         effection.gameObject.SetActive(true);
-        yield return new WaitForSeconds(EffectiveTime);
+        while (EffectiveTime <= preEffectiveTime)
+        {
+            EffectiveTime++;
+            board.GetComponent<BoardController>().CheckTime(BoardType.protectFieldEffectType, preEffectiveTime, EffectiveTime);
+            yield return new WaitForSeconds(1);
+        }
+        EffectiveTime = 0;
         effection.gameObject.SetActive(false);
         transform.GetComponentInParent<DamageSystem>().Protect();
     }

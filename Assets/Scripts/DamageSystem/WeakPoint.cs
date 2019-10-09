@@ -20,6 +20,6 @@ public class WeakPoint : MonoBehaviour
 
     public void Damage()
     {
-        m_DamageSystem.Damage(damageValue == 0f ? 40 : (int)damageValue);
+        m_DamageSystem.Damage(damageValue == 0f ? 40f : damageValue);
     }
 }

@@ -5,7 +5,7 @@ using System.Collections;
 // Feel free to use any code and picking on it, I cannot guaratnee it will fit into your project
 public class ExplodingProjectile : MonoBehaviour
 {
-    public int bulletDamage = 20;
+    public float bulletDamage = 20;
     private bool activeDamage=true;
 
     public GameObject impactPrefab;
