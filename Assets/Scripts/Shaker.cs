@@ -9,12 +9,12 @@ namespace Valve.VR.InteractionSystem
         private Player player = null;
 
         public void RightHandShake() {
-            player = InteractionSystem.Player.instance;
+            player = Player.instance;
 
             if (player == null)
             {
                 Debug.LogError("<b>[SteamVR Interaction]</b> Teleport: No Player instance found in map.");
-                Destroy(this.gameObject);
+                Destroy(gameObject);
                 return;
             }
 
@@ -22,12 +22,12 @@ namespace Valve.VR.InteractionSystem
         }
         public void LeftHandShake()
         {
-            player = InteractionSystem.Player.instance;
+            player = Player.instance;
 
             if (player == null)
             {
                 Debug.LogError("<b>[SteamVR Interaction]</b> Teleport: No Player instance found in map.");
-                Destroy(this.gameObject);
+                Destroy(gameObject);
                 return;
             }
 

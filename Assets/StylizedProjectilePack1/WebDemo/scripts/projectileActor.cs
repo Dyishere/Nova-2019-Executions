@@ -7,9 +7,10 @@ using Valve.VR.InteractionSystem;
 public class projectileActor : MonoBehaviour {
     public float perTemperature;            // 每秒无发射的下降速度
     private bool shootingSpeedUpSwitch;     // 用于接收是否提速的信息。
-    public  float temperature;             // 温度系统
-    public float curTime;                  // 用于计时
-    private bool isColdDown;
+    public  float temperature;              // 温度系统
+    public float curTime;                   // 用于计时
+    private bool isColdDown;                // 用于判断是否进入过热冷却
+    private Shaker m_Shaker;
     public Transform spawnLocator; 
     public Transform spawnLocatorMuzzleFlare;
     public Transform shellLocator;
@@ -72,7 +73,7 @@ public class projectileActor : MonoBehaviour {
             projectileSimFire = 5;
         }
         shootingSpeedUpSwitch = false;
-
+        m_Shaker = new Shaker();
     }
 	
 	// Update is called once per frame
@@ -97,6 +98,7 @@ public class projectileActor : MonoBehaviour {
 
             if (SteamVR_Actions.default_GrabPinch.stateDown == true)
             {
+                m_Shaker.RightHandShake();
                 firing = true;
                 Fire();
                 if (shootingSpeedUpSwitch)
