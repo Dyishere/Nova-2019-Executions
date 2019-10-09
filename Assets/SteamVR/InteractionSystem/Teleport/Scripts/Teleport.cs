@@ -950,7 +950,7 @@ namespace Valve.VR.InteractionSystem
 		{
 			CancelTeleportHint();
 
-			hintCoroutine = StartCoroutine( TeleportHintCoroutine() );
+			//hintCoroutine = StartCoroutine( TeleportHintCoroutine() );
 		}
 
 
@@ -962,7 +962,7 @@ namespace Valve.VR.InteractionSystem
                 ControllerButtonHints.HideTextHint(player.leftHand, teleportAction);
                 ControllerButtonHints.HideTextHint(player.rightHand, teleportAction);
 
-				StopCoroutine( hintCoroutine );
+				//StopCoroutine( hintCoroutine );
 				hintCoroutine = null;
 			}
 

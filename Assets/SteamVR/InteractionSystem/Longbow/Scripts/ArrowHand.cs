@@ -101,7 +101,7 @@ namespace Valve.VR.InteractionSystem
 			if ( allowArrowSpawn && ( currentArrow == null ) ) // If we're allowed to have an active arrow in hand but don't yet, spawn one
 			{
 				currentArrow = InstantiateArrow();
-				//arrowSpawnSound.Play();
+				arrowSpawnSound.Play();
 			}
 
 			float distanceToNockPosition = Vector3.Distance( transform.parent.position, bow.nockTransform.position );
