@@ -6,14 +6,15 @@ public class WeakPointController : MonoBehaviour
 {
     private Transform[] weakPoint = new Transform[3];
     public float delayShowTime;
-    private DamageSystem m_DamageSystem;
-    private int curWeakPointNum;
-    private bool isWorking;
+    public DamageSystem m_DamageSystem;
+    public int curWeakPointNum;
+    public bool isWorking;
     // Start is called before the first frame update
     void Start()
     {
         m_DamageSystem = GetComponent<DamageSystem>();
-        Invoke("InitWeakPoint", 2f);
+        InitWeakPoint();
+        Invoke("StartCycle", 2f);
     }
 
     // Update is called once per frame
@@ -36,7 +37,6 @@ public class WeakPointController : MonoBehaviour
         curWeakPointNum = 0;
         weakPoint[curWeakPointNum].gameObject.SetActive(true);
         isWorking = true;
-        StartCoroutine(WeakPointCycle());
     }
 
     public void StartCycle()
@@ -49,7 +49,10 @@ public class WeakPointController : MonoBehaviour
     {
         while (m_DamageSystem.GetCurState() != DamageState.DEATH)
         {
-            ShowWeakPoint();
+
+            weakPoint[curWeakPointNum].gameObject.SetActive(false);
+            curWeakPointNum = Random.Range(0, 3);
+            weakPoint[curWeakPointNum].gameObject.SetActive(true);
             yield return new WaitForSeconds(delayShowTime);
             if (Pause.GetInstance().GetState() == true)
             {
@@ -61,9 +64,7 @@ public class WeakPointController : MonoBehaviour
 
     private void ShowWeakPoint()
     {
-        weakPoint[curWeakPointNum].gameObject.SetActive(false);
-        curWeakPointNum = Random.Range(0, 3);
-        weakPoint[curWeakPointNum].gameObject.SetActive(true);
+
     }
 
 }

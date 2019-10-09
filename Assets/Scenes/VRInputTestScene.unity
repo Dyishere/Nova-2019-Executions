@@ -2085,7 +2085,6 @@ MonoBehaviour:
   secondPeriodHealth: 0
   curHealth: 0
   curState: 0
-  isProtect: 0
 --- !u!65 &208991362
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4177,7 +4176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8338c1031fe637c4f9968a39c177332d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayShowTime: 5
+  delayShowTime: 2
+  curWeakPointNum: 0
+  isWorking: 0
 --- !u!114 &361347044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4196,7 +4197,6 @@ MonoBehaviour:
   secondPeriodHealth: 0
   curHealth: 0
   curState: 0
-  isProtect: 0
 --- !u!1 &361393716
 GameObject:
   m_ObjectHideFlags: 0
@@ -4255,7 +4255,6 @@ MonoBehaviour:
   secondPeriodHealth: 0
   curHealth: 0
   curState: 0
-  isProtect: 0
 --- !u!65 &361393719
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8799,7 +8798,6 @@ MonoBehaviour:
   secondPeriodHealth: 0
   curHealth: 0
   curState: 0
-  isProtect: 0
 --- !u!65 &765524376
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25522,7 +25520,6 @@ MonoBehaviour:
   secondPeriodHealth: 0
   curHealth: 0
   curState: 0
-  isProtect: 0
 --- !u!65 &2111678276
 BoxCollider:
   m_ObjectHideFlags: 0
