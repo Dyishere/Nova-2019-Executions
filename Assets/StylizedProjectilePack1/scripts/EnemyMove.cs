@@ -7,7 +7,7 @@ public class EnemyMove : MonoBehaviour
     private GameObject enemy;
     public GameObject player;
     public GameObject bullet;
-    private GameObject[] tower;
+    private GameObject[] tower = new GameObject[3];
     private int playerFlag;//玩家所在塔的下标
 
     private float fireRate;//开火间隔 1.5s
@@ -101,9 +101,13 @@ public class EnemyMove : MonoBehaviour
 
     void Init()
     {
+        player = GameObject.Find("Player");
         enemy = gameObject;
-        tower = GameObject.FindGameObjectsWithTag("Tower");
-        playerFlag = 0;
+        for (int step = 0; step < 3; step++)
+        {
+            tower[step] = GameObject.Find("platform").transform.GetChild(step).gameObject;
+        }
+        playerFlag = 1;
         status = 0;//默认为'normal'状态
         fireRate = 1.5f;
         nextFire = 0.0f;
@@ -193,6 +197,7 @@ public class EnemyMove : MonoBehaviour
     {
         return true;
     }
+
     private void MonsterDeath()
     {
         if (GetComponent<DamageSystem>().GetCurState() == DamageState.DEATH)

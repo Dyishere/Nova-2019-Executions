@@ -4177,6 +4177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayShowTime: 2
+  m_DamageSystem: {fileID: 0}
   curWeakPointNum: 0
   isWorking: 0
 --- !u!114 &361347044

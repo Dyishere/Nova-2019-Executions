@@ -39,7 +39,9 @@ public class TeleportButton : MonoBehaviour
             return;
         }
         player.transform.position =  teleportPos.position;
+        
     }
+
 
     private IEnumerator DoTeleport()
     {

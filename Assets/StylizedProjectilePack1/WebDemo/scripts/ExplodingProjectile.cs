@@ -117,6 +117,9 @@ public class ExplodingProjectile : MonoBehaviour
                         hit.collider.gameObject.GetComponent<DamageSystem>().Damage(bulletDamage);
                         activeDamage = false;
                         break;
+                    case "StartButton":
+                        EventCenter.Broadcast(EventType.StartButton);
+                        break;
                 }
             }
 

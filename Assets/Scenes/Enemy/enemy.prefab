@@ -50,6 +50,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1632975844930020951, guid: 747cbd42998de1f47b60a639409d6d59, type: 3}
   bullet: {fileID: 1500823745862030582, guid: f94bd20a15c7e5942b9eaca2b64df682, type: 3}
+  tower:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   speed: 3
   vec3: {x: 0, y: 0, z: 0}
 --- !u!114 &8650190673640156986
@@ -70,7 +74,6 @@ MonoBehaviour:
   secondPeriodHealth: 0
   curHealth: 0
   curState: 0
-  isProtect: 0
 --- !u!65 &2245144434520290181
 BoxCollider:
   m_ObjectHideFlags: 0
