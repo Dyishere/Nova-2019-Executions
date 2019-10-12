@@ -81,24 +81,9 @@ public class projectileActor : MonoBehaviour {
         //Movement
         if (Pause.GetInstance().GetState() == false)
         {
-            if (Input.GetButton("Horizontal"))
-            {
-                if (Input.GetAxis("Horizontal") < 0)
-                {
-                    gameObject.transform.Rotate(Vector3.up, -25 * Time.deltaTime);
-                }
-                else
-                {
-                    gameObject.transform.Rotate(Vector3.up, 25 * Time.deltaTime);
-                }
-            }
-
             if (SteamVR_Actions.default_GrabPinch.stateDown == true)
             {
                 firing = true;
-                Fire();
-                if (shootingSpeedUpSwitch)
-                    Fire();
             }
             if (SteamVR_Actions.default_GrabPinch.stateUp == true)
             {
@@ -107,13 +92,13 @@ public class projectileActor : MonoBehaviour {
             }
             if (bombList[bombType].rapidFire && firing)
             {
+                rapidFireDelay = shootingSpeedUpSwitch ? 0 : 0.1f;
                 if (firingTimer > bombList[bombType].rapidFireCooldown + rapidFireDelay)
                 {
                     Fire();
                     firingTimer = 0;
                 }
             }
-
             if (firing)
             {
                 firingTimer += Time.deltaTime;
@@ -138,9 +123,9 @@ public class projectileActor : MonoBehaviour {
     {
         ColdDown();
     }
-    public void ShootingSpeedUp()
+    public void ShootingSpeedUp(bool curSwitch)
     {
-        shootingSpeedUpSwitch = !shootingSpeedUpSwitch;
+        shootingSpeedUpSwitch = curSwitch;
     }
     private void ColdDown()
     {

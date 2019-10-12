@@ -15,11 +15,11 @@ public class ShootingSpeedUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InitProtectionField();
+        InitShootingSpeed();
     }
     private void Update()
     {
-        isPause = Pause.GetInstance().GetState(); 
+        isPause = Pause.GetInstance().GetState();
     }
     public float GetCurValue(string title)
     {
@@ -36,7 +36,7 @@ public class ShootingSpeedUp : MonoBehaviour
         }
         return 233;//debug
     }
-    public void BeginProtectionField()
+    public void BeginSpeedUp()
     {
         if (isActive || isCD)
         {
@@ -58,16 +58,16 @@ public class ShootingSpeedUp : MonoBehaviour
     {
         if (!isActive)
         {
-
             return;
         }
         else
         {
+            gun.GetComponent<projectileActor>().ShootingSpeedUp(true);
             isActive = false;
             StartCoroutine(EffectiveTimeCountDown());
         }
     }
-    private void InitProtectionField()
+    private void InitShootingSpeed()
     {
         isCD = false;
         isActive = false;
@@ -91,7 +91,6 @@ public class ShootingSpeedUp : MonoBehaviour
     }
     IEnumerator EffectiveTimeCountDown()
     {
-        gun.GetComponent<projectileActor>().ShootingSpeedUp();
         while (EffectiveTime > 0)
         {
             EffectiveTime--;
@@ -101,6 +100,6 @@ public class ShootingSpeedUp : MonoBehaviour
             }
             yield return new WaitForSeconds(1);
         }
-        gun.GetComponent<projectileActor>().ShootingSpeedUp();
+        gun.GetComponent<projectileActor>().ShootingSpeedUp(false);
     }
 }
