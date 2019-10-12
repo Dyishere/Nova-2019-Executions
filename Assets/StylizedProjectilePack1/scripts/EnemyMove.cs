@@ -6,7 +6,7 @@ public class EnemyMove : MonoBehaviour
 {
     private GameObject enemy;
     public GameObject player;
-    public GameObject bullet;
+    //public GameObject bullet;
     private GameObject[] tower = new GameObject[3];
     private int playerFlag;//玩家所在塔的下标
 
@@ -21,7 +21,26 @@ public class EnemyMove : MonoBehaviour
     float distance;//小怪与玩家所在塔的距离
     float attackDistance;//距离小于此时才可攻击
 
+    public Transform spawnLocator;//子弹射出位置
+
     Vector3 directionRange = new Vector3(0f, 0f, 0f);//6身位移动用
+
+    [System.Serializable]
+    public class projectile
+    {
+        public string name;
+        public Rigidbody bombPrefab;
+        public GameObject muzzleflare;
+        public float min, max;
+        public bool rapidFire;
+        public float rapidFireCooldown;
+
+        public bool shotgunBehavior;
+        public int shotgunPellets;
+        public GameObject shellPrefab;
+        public bool hasShells;
+    }
+    public projectile bullet = new projectile();
 
     struct leagalArea//漫游区
     {
@@ -134,13 +153,41 @@ public class EnemyMove : MonoBehaviour
 
     void attackByShoot()//
     {
+        
        // GameObject pos = GameObject.Find("bulletPos");
-        GameObject pos = this.transform.Find("bulletPos").gameObject;
+        //GameObject pos = this.transform.Find("bulletPos").gameObject;
+        /*
         GameObject clone;
         clone = Instantiate(bullet, pos.transform.position, pos.transform.rotation);
         //clone = getBullet();
-
+        */
         nextFire = Time.time + fireRate;
+      
+        //Instantiate(bullet.muzzleflare, spawnLocatorMuzzleFlare.position, spawnLocatorMuzzleFlare.rotation);
+        //   bombList[bombType].muzzleflare.Play();
+        /*
+        if (bullet.hasShells)
+        {
+            Instantiate(bullet.shellPrefab, shellLocator.position, shellLocator.rotation);
+        }
+        recoilAnimator.SetTrigger("recoil_trigger");*/
+
+        Rigidbody rocketInstance;
+        rocketInstance = Instantiate(bullet.bombPrefab, spawnLocator.position, spawnLocator.rotation) as Rigidbody;
+        // Quaternion.Euler(0,90,0)
+        rocketInstance.AddForce(-spawnLocator.forward * Random.Range(bullet.min, bullet.max));
+        /*
+        if (bullet.shotgunBehavior)
+        {
+            for (int i = 0; i < bullet.shotgunPellets; i++)
+            {
+                Rigidbody rocketInstanceShotgun;
+                rocketInstanceShotgun = Instantiate(bullet.bombPrefab, shotgunLocator[i].position, shotgunLocator[i].rotation) as Rigidbody;
+                // Quaternion.Euler(0,90,0)
+                rocketInstanceShotgun.AddForce(shotgunLocator[i].forward * Random.Range(bullet.min, bullet.max));
+            }
+        }*/
+
     }//射击
 
     void exCurry()//未完成！：进行集体蓄力攻击

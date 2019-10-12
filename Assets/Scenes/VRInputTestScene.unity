@@ -25452,6 +25452,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPosition
       objectReference: {fileID: 0}
+    - target: {fileID: 145766704666464413, guid: f4ded3ee5adb7fe42b690e02d346356a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 145766704666464415, guid: f4ded3ee5adb7fe42b690e02d346356a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25813,16 +25818,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Monster
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632975845369488505, guid: 747cbd42998de1f47b60a639409d6d59,
-        type: 3}
-      propertyPath: bombList.Array.data[5].rapidFireCooldown
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632975845369488505, guid: 747cbd42998de1f47b60a639409d6d59,
-        type: 3}
-      propertyPath: bombList.Array.data[12].rapidFireCooldown
-      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1632975846360542340, guid: 747cbd42998de1f47b60a639409d6d59, type: 3}

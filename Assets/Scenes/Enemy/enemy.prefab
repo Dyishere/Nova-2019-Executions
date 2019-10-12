@@ -49,12 +49,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1632975844930020951, guid: 747cbd42998de1f47b60a639409d6d59, type: 3}
-  bullet: {fileID: 1500823745862030582, guid: f94bd20a15c7e5942b9eaca2b64df682, type: 3}
-  tower:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   speed: 3
+  spawnLocator: {fileID: 7223785364337628789}
+  bullet:
+    name: Normal
+    bombPrefab: {fileID: 54453457801900860, guid: 3b952465a137ae4459f7be070b8ebfa8,
+      type: 3}
+    muzzleflare: {fileID: 1000012903210382, guid: 9b2faf3baf02074448f732f82b94e385,
+      type: 3}
+    min: 2800
+    max: 3200
+    rapidFire: 1
+    rapidFireCooldown: 0.12
+    shotgunBehavior: 0
+    shotgunPellets: 4
+    shellPrefab: {fileID: 0}
+    hasShells: 0
   vec3: {x: 0, y: 0, z: 0}
 --- !u!114 &8650190673640156986
 MonoBehaviour:
@@ -281,7 +291,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7223785364337628790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.03}
+  m_LocalPosition: {x: 0, y: 0, z: -1.304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2470450114552110381}
