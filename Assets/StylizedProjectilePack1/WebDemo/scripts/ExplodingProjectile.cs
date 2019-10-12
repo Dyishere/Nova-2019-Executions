@@ -118,7 +118,10 @@ public class ExplodingProjectile : MonoBehaviour
                         activeDamage = false;
                         break;
                     case "StartButton":
-                        EventCenter.Broadcast(EventType.StartButton);
+                        EventCenter.Broadcast(EventType.StartGame);
+                        break;
+                    case "EndButton":
+                        EventCenter.Broadcast(EventType.EndGame);
                         break;
                 }
             }

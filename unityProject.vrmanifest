@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.vrtest.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\心渡\\Documents\\Git\\Nova-2019-Executions\\actions.json",
+      "action_manifest_path": "C:\\Users\\心渡\\Documents\\Git\\Nova-2019-Executions2\\actions.json",
       "strings": {
         "en_us": {
           "name": "VRTest [Testing]"

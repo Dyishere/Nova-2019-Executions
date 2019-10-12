@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
@@ -10,6 +11,7 @@ public class projectileActor : MonoBehaviour {
     public  float temperature;              // 温度系统
     public float curTime;                   // 用于计时
     private bool isColdDown;                // 用于判断是否进入过热冷却
+    private GameObject[] tower = new GameObject[3];
     private Shaker m_Shaker;
     public Transform spawnLocator; 
     public Transform spawnLocatorMuzzleFlare;
@@ -68,12 +70,7 @@ public class projectileActor : MonoBehaviour {
         //{
         //    UiText.text = bombList[bombType].name.ToString();
         //}
-        if (swarmMissileLauncher)
-        {
-            projectileSimFire = 5;
-        }
-        shootingSpeedUpSwitch = false;
-        m_Shaker = new Shaker();
+        InitGun();
     }
 	
 	// Update is called once per frame
@@ -98,7 +95,6 @@ public class projectileActor : MonoBehaviour {
 
             if (SteamVR_Actions.default_GrabPinch.stateDown == true)
             {
-                m_Shaker.RightHandShake();
                 firing = true;
                 Fire();
                 if (shootingSpeedUpSwitch)
@@ -124,6 +120,20 @@ public class projectileActor : MonoBehaviour {
             }
         }
 	}
+    private void InitGun()
+    {
+        if (swarmMissileLauncher)
+        {
+            projectileSimFire = 5;
+        }
+        shootingSpeedUpSwitch = false;
+        m_Shaker = new Shaker();
+        if (GameObject.Find("platform") != null)
+            for (int step = 0; step < 3; step++)
+            {
+                tower[step] = GameObject.Find("platform").transform.GetChild(step).gameObject;
+            }
+    }
     private void FixedUpdate()
     {
         ColdDown();
@@ -165,19 +175,28 @@ public class projectileActor : MonoBehaviour {
 
     public void Fire()
     {
-        if (temperature > 100f && !isColdDown)
+        if (GameObject.Find("platform") != null)
         {
-            StartCoroutine(ShootingColdDown());
-            Debug.Log("枪支过热");
-            return;
+            if (tower[PlayerInPlatform.GetInstance().GetPlatform()].GetComponent<DamageSystem>().GetCurState() == DamageState.DEATH)
+            {
+                Debug.Log("该塔已损坏，请撤离");
+                return;
+            }
+            if (temperature > 100f && !isColdDown)
+            {
+                StartCoroutine(ShootingColdDown());
+                Debug.Log("枪支过热");
+                return;
+            }
+            if (isColdDown)
+            {
+                Debug.Log("冷却中");
+                return;
+            }
         }
-        if (isColdDown)
-        {
-            Debug.Log("冷却中");
-            return;
-        }
-        curTime = 0;
 
+        curTime = 0;
+        m_Shaker.RightHandShake();
         temperature += 0.5f;
         //if(CameraShake)
         //{

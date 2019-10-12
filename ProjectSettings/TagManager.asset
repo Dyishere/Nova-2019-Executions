@@ -12,6 +12,8 @@ TagManager:
   - Boss
   - Monster
   - Tower
+  - StartButton
+  - EndButton
   layers:
   - Default
   - TransparentFX

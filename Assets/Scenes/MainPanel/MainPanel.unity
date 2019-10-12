@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 348647444}
   m_Layer: 0
   m_Name: ExistGame
-  m_TagString: Untagged
+  m_TagString: EndButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 411584308}
   m_Layer: 0
   m_Name: PlayGame
-  m_TagString: Untagged
+  m_TagString: StartButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1740,7 +1740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0171de11a63994398c1900962a514b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScenesName: 
+  ScenesName: VRInputTestScene
 --- !u!4 &1888770001
 Transform:
   m_ObjectHideFlags: 0

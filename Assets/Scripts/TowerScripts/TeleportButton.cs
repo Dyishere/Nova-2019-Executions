@@ -5,6 +5,7 @@ using Valve.VR.InteractionSystem;
 
 public class TeleportButton : MonoBehaviour
 {
+
     public HoverButton hoverButton;
 
     public GameObject player;
@@ -39,9 +40,24 @@ public class TeleportButton : MonoBehaviour
             return;
         }
         player.transform.position =  teleportPos.position;
-        
+        CheckPlatform();
     }
 
+    private void CheckPlatform()
+    {
+        switch (name)
+        {
+            case "TeleportPointB":
+                PlayerInPlatform.GetInstance().PlatformB();
+                break;
+            case "TeleportPointA":
+                PlayerInPlatform.GetInstance().PlatformA();
+                break;
+            case "TeleportPointC":
+                PlayerInPlatform.GetInstance().PlatformC();
+                break;
+        }
+    }
 
     private IEnumerator DoTeleport()
     {
