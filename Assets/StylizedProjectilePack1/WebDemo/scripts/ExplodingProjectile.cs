@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 /* THIS CODE IS JUST FOR PREVIEW AND TESTING */
 // Feel free to use any code and picking on it, I cannot guaratnee it will fit into your project
 public class ExplodingProjectile : MonoBehaviour
 {
+    private GameObject player;
     public float bulletDamage = 20;
     private bool activeDamage=true;
 
@@ -35,6 +37,7 @@ public class ExplodingProjectile : MonoBehaviour
     void Start()
     {
         thisRigidbody = GetComponent<Rigidbody>();
+        player = GameObject.Find("Player");
         if (Missile)
         {
             missileTarget = GameObject.FindWithTag("Target").transform;
@@ -103,27 +106,32 @@ public class ExplodingProjectile : MonoBehaviour
             
             if (activeDamage)
             {
+                GameObject curDamageText = Instantiate (Resources.Load<GameObject>("DamageTextCanvas"), hit.transform.position, Quaternion.identity);
                 switch (hit.collider.gameObject.tag)
                 {
-                    case "WeakPoint":
-                        hit.collider.gameObject.GetComponent<WeakPoint>().Damage();
-                        activeDamage = false;
-                        break;
-                    case "Boss":
-                        hit.collider.gameObject.GetComponent<DamageSystem>().Damage(bulletDamage);
-                        activeDamage = false;
-                        break;
-                    case "Monster":
-                        hit.collider.gameObject.GetComponent<DamageSystem>().Damage(bulletDamage);
-                        activeDamage = false;
-                        break;
                     case "StartButton":
                         EventCenter.Broadcast(EventType.StartGame);
                         break;
                     case "EndButton":
                         EventCenter.Broadcast(EventType.EndGame);
                         break;
+                    case "WeakPoint":
+                        hit.collider.gameObject.GetComponent<WeakPoint>().Damage();
+                        curDamageText.GetComponentInChildren<Text>().text = "- "+ hit.collider.gameObject.GetComponent<WeakPoint>().damageValue;
+                        activeDamage = false;
+                        break;
+                    case "Boss":
+                        hit.collider.gameObject.GetComponent<DamageSystem>().Damage(bulletDamage);
+                        curDamageText.GetComponentInChildren<Text>().text = "- " + bulletDamage;
+                        activeDamage = false;
+                        break;
+                    case "Monster":
+                        hit.collider.gameObject.GetComponent<DamageSystem>().Damage(bulletDamage);
+                        curDamageText.GetComponentInChildren<Text>().text = "- " + bulletDamage;
+                        activeDamage = false;
+                        break;
                 }
+                curDamageText.transform.LookAt(player.transform);
             }
 
 

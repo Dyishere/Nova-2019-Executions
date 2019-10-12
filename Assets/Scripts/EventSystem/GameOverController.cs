@@ -7,6 +7,7 @@ public class GameOverController : MonoBehaviour
     private GameObject[] tower = new GameObject[3];
     public GameObject boss;
     private bool isGameWin;
+    private float gameOverTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +28,13 @@ public class GameOverController : MonoBehaviour
     {
         if (boss.GetComponent<DamageSystem>().GetCurState() == DamageState.DEATH)
         {
-            Debug.Log("Boss已死，玩家胜利，游戏结束");
-            Destroy(this);
+            gameOverTime += Time.deltaTime;
+            if (gameOverTime > 22f)
+            {
+                Debug.Log("Boss已死，玩家胜利，游戏结束");
+                Destroy(boss);
+                Destroy(this);
+            }
         }
         for (int step = 0; step < 3; step++)
         {
