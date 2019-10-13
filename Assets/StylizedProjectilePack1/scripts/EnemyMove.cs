@@ -94,8 +94,8 @@ public class EnemyMove : MonoBehaviour
             if (status == 1)//移动中
             {
                 moveTo(directionRange, speed);
-                transform.LookAt(tower[playerFlag].transform);//移动后重新调整面向
-                if (this.transform.position == directionRange || Time.time > nextMove)
+                // transform.LookAt(tower[playerFlag].transform);//移动后重新调整面向
+                if (transform.position == directionRange || Time.time > nextMove)
                 {
                     status = 0;//达到目的后重新回到日常状态
                     transform.LookAt(tower[playerFlag].transform);//移动后重新调整面向
@@ -140,7 +140,7 @@ public class EnemyMove : MonoBehaviour
     void moveByRange()
     {
         Vector3 direction = getRangeMoveVector3();
-        //Debug.Log(direction);
+        // Debug.Log(direction);
         while (!leagalMove(direction))
         {
             direction = getRangeMoveVector3();
@@ -174,8 +174,9 @@ public class EnemyMove : MonoBehaviour
 
         Rigidbody rocketInstance;
         rocketInstance = Instantiate(bullet.bombPrefab, spawnLocator.position, spawnLocator.rotation) as Rigidbody;
+        rocketInstance.transform.LookAt(player.transform.position);
         // Quaternion.Euler(0,90,0)
-        rocketInstance.AddForce(-spawnLocator.forward * Random.Range(bullet.min, bullet.max));
+        rocketInstance.AddForce((player.transform.position - spawnLocator.transform.position).normalized * Random.Range(bullet.min, bullet.max));
         /*
         if (bullet.shotgunBehavior)
         {

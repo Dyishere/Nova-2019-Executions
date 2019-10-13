@@ -7,6 +7,18 @@ using Valve.VR.InteractionSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    public Vector3 movingDir;
+    public GameObject player;
+
+    private void Update()
+    {
+        transform.LookAt(player.transform.position);
+        transform.Translate(movingDir * Time.deltaTime);
+    }
+
+
+
+    /*
     //public GameObject Bullet;
     public Text TestText;
     int shootnum = 0;
@@ -36,7 +48,7 @@ public class PlayerBehaviour : MonoBehaviour
             default_GrabGripss();
         if (SteamVR_Actions.default_Teleport.state == true)
             default_Teleportss();
-            */
+
     }
 
     private void Shoot() {
@@ -61,4 +73,5 @@ public class PlayerBehaviour : MonoBehaviour
     {
         // TestText.text = "当前射击模式为提速状态：" + gun.GetComponent<projectileActor>().shootingSpeedUpSwitch;
     }
+*/
 }
