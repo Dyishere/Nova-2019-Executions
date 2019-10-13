@@ -124,6 +124,21 @@ public class projectileActor : MonoBehaviour {
     {
         ColdDown();
     }
+
+    /// <summary>
+    /// 获取当前枪支温度
+    /// </summary>
+    /// <returns></returns>
+    public float GetCurTemperature()
+    {
+        return temperature;
+    }
+
+    private void ColdDownMethod()
+    {
+        Debug.Log("冒烟");
+    }
+
     public void ShootingSpeedUp(bool curSwitch)
     {
         shootingSpeedUpSwitch = curSwitch;
@@ -171,7 +186,6 @@ public class projectileActor : MonoBehaviour {
             if (temperature > 100f && !isColdDown)
             {
                 StartCoroutine(ShootingColdDown());
-                temperature--;
                 Debug.Log("枪支过热");
                 return;
             }

@@ -5,10 +5,13 @@ using UnityEngine;
 public class DamageText : MonoBehaviour
 {
     public float floatSpeed;
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         Invoke("DestroyThis", 1f);
+        gameObject.transform.LookAt(player.transform);
     }
 
     // Update is called once per frame
