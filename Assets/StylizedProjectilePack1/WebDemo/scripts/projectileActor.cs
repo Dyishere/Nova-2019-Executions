@@ -66,6 +66,7 @@ public class projectileActor : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+
         //if (UImaster)
         //{
         //    UiText.text = bombList[bombType].name.ToString();
@@ -109,7 +110,7 @@ public class projectileActor : MonoBehaviour {
     {
         if (swarmMissileLauncher)
         {
-            projectileSimFire = 5;
+            projectileSimFire = 1;
         }
         shootingSpeedUpSwitch = false;
         m_Shaker = new Shaker();

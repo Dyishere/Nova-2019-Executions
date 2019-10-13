@@ -250,6 +250,7 @@ public class EnemyMove : MonoBehaviour
     {
         if (GetComponent<DamageSystem>().GetCurState() == DamageState.DEATH)
         {
+            Debug.Log("monsters die");
             Destroy(gameObject);
         }
     }

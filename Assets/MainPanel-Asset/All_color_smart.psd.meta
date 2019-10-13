@@ -1,0 +1,967 @@
+fileFormatVersion: 2
+guid: c63ab69131188f945a7e18b8424e0c50
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3241394148434611735
+    second: All_color_smart_0
+  - first:
+      213: -748513004690280200
+    second: All_color_smart_1
+  - first:
+      213: 1110279962779820654
+    second: All_color_smart_2
+  - first:
+      213: 8029433308510066449
+    second: All_color_smart_3
+  - first:
+      213: 6443270431920253801
+    second: All_color_smart_4
+  - first:
+      213: 3413098502904124098
+    second: All_color_smart_5
+  - first:
+      213: -5902010124782916266
+    second: All_color_smart_6
+  - first:
+      213: -3182720942085172287
+    second: All_color_smart_7
+  - first:
+      213: -8845201438223175737
+    second: All_color_smart_8
+  - first:
+      213: -6509285374882271510
+    second: All_color_smart_9
+  - first:
+      213: -3380727127657921097
+    second: All_color_smart_10
+  - first:
+      213: 941788726173808251
+    second: All_color_smart_11
+  - first:
+      213: -1939285173287144189
+    second: All_color_smart_12
+  - first:
+      213: -2193929210886305154
+    second: All_color_smart_13
+  - first:
+      213: 2727797202275177590
+    second: All_color_smart_14
+  - first:
+      213: 1891125852415596482
+    second: All_color_smart_15
+  - first:
+      213: 6133751378535119744
+    second: All_color_smart_16
+  - first:
+      213: 2165023032528750725
+    second: All_color_smart_17
+  - first:
+      213: -688079448021147645
+    second: All_color_smart_18
+  - first:
+      213: -3242030922335090292
+    second: All_color_smart_19
+  - first:
+      213: -4718141248561508658
+    second: All_color_smart_20
+  - first:
+      213: -5136406335931367927
+    second: All_color_smart_21
+  - first:
+      213: 6492811800825002135
+    second: All_color_smart_22
+  - first:
+      213: -8242117628024829951
+    second: All_color_smart_23
+  - first:
+      213: -1486527121713361062
+    second: All_color_smart_24
+  - first:
+      213: 4793461392335392151
+    second: All_color_smart_25
+  - first:
+      213: -6843338934889748832
+    second: All_color_smart_26
+  - first:
+      213: -2628313381828266882
+    second: All_color_smart_27
+  - first:
+      213: -741304318408743612
+    second: All_color_smart_28
+  - first:
+      213: 3559544699970615210
+    second: All_color_smart_29
+  - first:
+      213: 4524058804143306420
+    second: All_color_smart_30
+  - first:
+      213: -6662717131367563604
+    second: All_color_smart_31
+  - first:
+      213: 165660309218974836
+    second: All_color_smart_32
+  - first:
+      213: -4405350456504252659
+    second: All_color_smart_33
+  - first:
+      213: 1602570426133146553
+    second: All_color_smart_34
+  - first:
+      213: 3966757487282054476
+    second: All_color_smart_35
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: All_color_smart_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7050072990b4849bb234b243221dc5
+      internalID: 3241394148434611735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_1
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 2500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 004ecd400cf0cb748a4c238f79603c51
+      internalID: -748513004690280200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_2
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 2500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44582d208f9f8be4b820e12bc4db2194
+      internalID: 1110279962779820654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_3
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 2500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4dbe6976018e4f48bb2543d67d19acb
+      internalID: 8029433308510066449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_4
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 2500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acb7dc937622d4341893c6b853d4253b
+      internalID: 6443270431920253801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_5
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 2500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900a406ad31e21b43aa8db8b7aa0030b
+      internalID: 3413098502904124098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6940753f8dd598d40ad829bcfb3bb4f3
+      internalID: -5902010124782916266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_7
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 2000
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7077104d75df864ab6ffbc99ac97a8a
+      internalID: -3182720942085172287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_8
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 2000
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b69207f283add48b2259053ac1bc0b
+      internalID: -8845201438223175737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_9
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 2000
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44cd5a5e25b54554f944df5230ac8d2e
+      internalID: -6509285374882271510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_10
+      rect:
+        serializedVersion: 2
+        x: 1552
+        y: 1982
+        width: 370
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a73147a8d6745409b4109ff4feb39b
+      internalID: -3380727127657921097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_11
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 2000
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a638b3e200e23c3498fc88e55c3da7a7
+      internalID: 941788726173808251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 459c6fbe042c3f547a584ef25bb25d8c
+      internalID: -1939285173287144189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_13
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30a7f5b10afb56409e19a2d4fcacca0
+      internalID: -2193929210886305154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_14
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 1509
+        width: 370
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ebda77dd703f5348a1a08311253a938
+      internalID: 2727797202275177590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_15
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 1500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd32d1a5c0161241a7535fe706ff81c
+      internalID: 1891125852415596482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_16
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 1500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: affd6be0b1c2852478d9cf07a4052449
+      internalID: 6133751378535119744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_17
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 1500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eae3cb7c92567d4e82324e23ba2c1c5
+      internalID: 2165023032528750725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_18
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1048
+        width: 370
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e744593627c1d0248a023dd688927113
+      internalID: -688079448021147645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_19
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1000
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9bf189ebbb60840be23eaaf75e8a3e
+      internalID: -3242030922335090292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_20
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 1000
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1b8dde6531643e4f9b8017816199224
+      internalID: -4718141248561508658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_21
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 1000
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c357a01d87acbf845848716d5b16311f
+      internalID: -5136406335931367927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_22
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 1000
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5271f33dbdff4e04dbd9a906ac457123
+      internalID: 6492811800825002135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_23
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 1000
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac7e1a99ace2ce4fa3a9d5e557ee1cb
+      internalID: -8242117628024829951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc90693851a30794780ac3ad108de0c7
+      internalID: -1486527121713361062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_25
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f48e5580b4ac40f408a3718756cd077e
+      internalID: 4793461392335392151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_26
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 500
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5311121c84beafb438c63ac697a8c365
+      internalID: -6843338934889748832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_27
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 582
+        width: 370
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7202938111022284d8b0e8f7b1487ff2
+      internalID: -2628313381828266882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_28
+      rect:
+        serializedVersion: 2
+        x: 1552
+        y: 577
+        width: 370
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f8ca770aca668146a2ebb960ce8d6d8
+      internalID: -741304318408743612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_29
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 575
+        width: 370
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 315d2fee1bd41be478642c36ae6f372b
+      internalID: 3559544699970615210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0863ac772d9ce764fadca40d251d1bfe
+      internalID: 4524058804143306420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_31
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9855b7ba4b426e842b2b00efaf1ee604
+      internalID: -6662717131367563604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_32
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 0
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7d13f93c34873140a47a3c43b9af8f4
+      internalID: 165660309218974836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_33
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 130
+        width: 370
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57edd00937106734c932d02ee808b36d
+      internalID: -4405350456504252659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_34
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 0
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a22cbd0bf64dba344a2e6cbda24ec446
+      internalID: 1602570426133146553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_color_smart_35
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 0
+        width: 390
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22fcea5c9d4259443aca60abeebd957e
+      internalID: 3966757487282054476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -124,6 +124,7 @@ public class ExplodingProjectile : MonoBehaviour
                         hit.collider.gameObject.GetComponent<DamageSystem>().Damage(bulletDamage);
                         curDamageText.GetComponentInChildren<Text>().text = "- " + bulletDamage;
                         activeDamage = false;
+                        Debug.Log("hit it");
                         break;
                     case "Monster":
                         hit.collider.gameObject.GetComponent<DamageSystem>().Damage(bulletDamage);

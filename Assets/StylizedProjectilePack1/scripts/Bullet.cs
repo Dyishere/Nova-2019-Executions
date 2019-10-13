@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour
 {
     private float bulletSpeed = 5.0f;
     private Vector3 direction;
-    float damageNum = 0.5f;//每发子弹0.5伤害
     private GameObject player;
-    public float bulletDamage = 20;
+    public float bulletDamage;
     private bool activeDamage = true;
 
     public GameObject impactPrefab;
@@ -61,7 +61,7 @@ public class Bullet : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= explosionTimer)
             {
-                Instantiate(impactPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
+                //Instantiate(impactPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
                 Destroy(gameObject);
             }
         }
@@ -99,14 +99,16 @@ public class Bullet : MonoBehaviour
 
             if (activeDamage)
             {
-                GameObject curDamageText = Instantiate(Resources.Load<GameObject>("DamageTextCanvas"), hit.transform.position, Quaternion.identity);
+                // GameObject curDamageText = Instantiate(Resources.Load<GameObject>("DamageTextCanvas"), hit.transform.position, Quaternion.identity);
                 switch (hit.collider.gameObject.tag)
                 {
                     case "Tower":
-                        EventCenter.Broadcast(EventType.StartGame);
+                        hit.collider.gameObject.GetComponent<DamageSystem>().Damage(bulletDamage);
+                        // curDamageText.GetComponentInChildren<Text>().text = "- " + bulletDamage;
+                        activeDamage = false;
                         break;
                 }
-                curDamageText.transform.LookAt(player.transform);
+                // curDamageText.transform.LookAt(player.transform);
             }
 
 

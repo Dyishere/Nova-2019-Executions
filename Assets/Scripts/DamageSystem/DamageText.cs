@@ -8,7 +8,7 @@ public class DamageText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("DestroyThis", 3f);
+        Invoke("DestroyThis", 1f);
     }
 
     // Update is called once per frame
