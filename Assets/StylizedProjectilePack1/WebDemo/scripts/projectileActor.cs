@@ -10,7 +10,7 @@ public class projectileActor : MonoBehaviour {
     private bool shootingSpeedUpSwitch;     // 用于接收是否提速的信息。
     public  float temperature;              // 温度系统
     public float curTime;                   // 用于计时
-    private bool isColdDown;                // 用于判断是否进入过热冷却
+    public bool isColdDown;                // 用于判断是否进入过热冷却
     private GameObject[] tower = new GameObject[3];
     private Shaker m_Shaker;
     public Transform spawnLocator; 
@@ -93,7 +93,7 @@ public class projectileActor : MonoBehaviour {
             }
             if (bombList[bombType].rapidFire && firing)
             {
-                rapidFireDelay = shootingSpeedUpSwitch ? 0 : 0.1f;
+                rapidFireDelay = shootingSpeedUpSwitch ? 0 : 0.01f;
                 if (firingTimer > bombList[bombType].rapidFireCooldown + rapidFireDelay)
                 {
                     Fire();
@@ -171,6 +171,7 @@ public class projectileActor : MonoBehaviour {
             if (temperature > 100f && !isColdDown)
             {
                 StartCoroutine(ShootingColdDown());
+                temperature--;
                 Debug.Log("枪支过热");
                 return;
             }
@@ -183,7 +184,7 @@ public class projectileActor : MonoBehaviour {
 
         curTime = 0;
         m_Shaker.RightHandShake();
-        temperature += 0.5f;
+        temperature += 0.3f;
         //if(CameraShake)
         //{
         //    CameraShakeCaller.ShakeCamera();
@@ -212,7 +213,7 @@ public class projectileActor : MonoBehaviour {
                 rocketInstanceShotgun.AddForce(shotgunLocator[i].forward * Random.Range(bombList[bombType].min, bombList[bombType].max));
             }
         }
-
+        /*
         if (Torque)
         {
             rocketInstance.AddTorque(spawnLocator.up * Random.Range(Tor_min, Tor_max));
@@ -224,7 +225,7 @@ public class projectileActor : MonoBehaviour {
         if (MajorRotate)
         {
             Major_RandomizeRotation();
-        }
+        }*/
     }
     IEnumerator ShootingColdDown()
     {
